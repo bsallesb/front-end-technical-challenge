@@ -1,11 +1,14 @@
-import React from 'react';
+import { StoresProvider } from './hooks/Stores';
+import Home from './pages/Home';
+import { GlobalStyle } from './styles/global';
 
-function App() {
-  return (
-    <div>
-      <h1>Good luck!</h1>
-    </div>
-  );
-}
+export const App: React.FC = () => (
+    <>
+        <StoresProvider>
+            <Home />
+        </StoresProvider>
+        <GlobalStyle />
+    </>
+);
 
 export default App;
