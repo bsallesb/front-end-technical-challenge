@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import { Grid, TextField } from '@mui/material';
 import CurrencyTextField from '@unicef/material-ui-currency-textfield';
 
@@ -34,4 +36,4 @@ const Filters: React.FC = () => {
     );
 };
 
-export default Filters;
+export default memo(Filters);
