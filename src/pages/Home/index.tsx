@@ -1,6 +1,7 @@
-import { Alert, Box, Grid } from '@mui/material';
+import { memo } from 'react';
 
-import Container from '../../components/Container';
+import { Alert, Box, Container, Grid } from '@mui/material';
+
 import Filters from '../../components/Filters';
 import Footer from '../../components/Footer';
 import Header from '../../components/Header';
@@ -17,8 +18,8 @@ const Home: React.FC = () => {
     return (
         <Wrapper>
             <Header />
-            <LoadingGate waitFor={!isLoading} meanwhile={<LoadingStores />}>
-                <Box sx={{ flexGrow: 1 }}>
+            <Box sx={{ flexGrow: 1 }}>
+                <LoadingGate waitFor={!isLoading} meanwhile={<LoadingStores />}>
                     <Container>
                         <Box py={5}>
                             {error && <Alert severity="error">{error}</Alert>}
@@ -49,11 +50,11 @@ const Home: React.FC = () => {
                             )}
                         </Box>
                     </Container>
-                </Box>
-            </LoadingGate>
+                </LoadingGate>
+            </Box>
             <Footer />
         </Wrapper>
     );
 };
 
-export default Home;
+export default memo(Home);

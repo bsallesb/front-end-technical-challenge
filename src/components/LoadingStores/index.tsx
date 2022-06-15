@@ -1,6 +1,7 @@
-import { Box } from '@mui/material';
+import { memo } from 'react';
+
+import { Box, Container } from '@mui/material';
 import ContentLoader from 'react-content-loader';
-import Container from '../Container';
 
 const LoadingStores: React.FC = () => (
     <Container>
@@ -64,4 +65,4 @@ const LoadingStores: React.FC = () => (
     </Container>
 );
 
-export default LoadingStores;
+export default memo(LoadingStores);

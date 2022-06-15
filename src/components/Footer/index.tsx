@@ -1,7 +1,8 @@
-import Box from '@mui/material/Box';
+import { memo } from 'react';
+
+import { Container, Box } from '@mui/material';
 
 import { Background } from './styles';
-import Container from '../Container';
 
 const Footer: React.FC = () => (
     <Background>
@@ -23,4 +24,4 @@ const Footer: React.FC = () => (
     </Background>
 );
 
-export default Footer;
+export default memo(Footer);

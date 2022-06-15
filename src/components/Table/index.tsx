@@ -1,6 +1,7 @@
 import { useCallback, useMemo } from 'react';
 
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
+
 import { useStores } from '../../hooks/Stores';
 import { TableContainer } from './styles';
 

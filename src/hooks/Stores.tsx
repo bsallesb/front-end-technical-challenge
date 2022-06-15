@@ -6,11 +6,12 @@ import {
     useMemo,
     useEffect,
 } from 'react';
+
 import { StoreType } from '../@types/Stores';
 import { formatCurrency } from '../helpers';
 import Api from '../services/Api';
 
-interface StoreContextData {
+interface IStoreContextData {
     stores: StoreType[];
     isLoading: boolean;
     error: string | null;
@@ -22,11 +23,11 @@ interface StoreContextData {
     setMinValue: (value: string) => void;
 }
 
-export const StoresContext = createContext<StoreContextData>(
-    {} as StoreContextData
+export const StoresContext = createContext<IStoreContextData>(
+    {} as IStoreContextData
 );
 
-export const useStores = (): StoreContextData => {
+export const useStores = (): IStoreContextData => {
     const context = useContext(StoresContext);
 
     if (!context) {
@@ -59,19 +60,16 @@ export const StoresProvider: React.FC = ({ children }) => {
         }
     }, []);
 
-    const formattedStores = useMemo(
-        () =>
-            stores.map((store, i) => ({
-                ...store,
-                id: i + 1,
-                formattedRevenue: formatCurrency(store.revenue),
-            })),
-        [stores]
-    );
-
     const filteredStores = useMemo(
-        () => formattedStores.filter(store => store.name.includes(search)),
-        [search, formattedStores]
+        () =>
+            stores
+                .map((store, i) => ({
+                    ...store,
+                    id: i + 1,
+                    formattedRevenue: formatCurrency(store.revenue),
+                }))
+                .filter(store => store.name.includes(search)),
+        [search, stores]
     );
 
     const numericMinValue = useMemo(() => Number(minValue), [minValue]);

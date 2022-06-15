@@ -1,3 +1,5 @@
+import { memo } from 'react';
+
 import { StoresProvider } from './hooks/Stores';
 import Home from './pages/Home';
 import { GlobalStyle } from './styles/global';
@@ -11,4 +13,4 @@ export const App: React.FC = () => (
     </>
 );
 
-export default App;
+export default memo(App);
