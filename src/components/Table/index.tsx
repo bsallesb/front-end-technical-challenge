@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from 'react';
+import { memo, useCallback, useMemo } from 'react';
 
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
 
@@ -36,4 +36,4 @@ const Table: React.FC = () => {
     );
 };
 
-export default Table;
+export default memo(Table);
