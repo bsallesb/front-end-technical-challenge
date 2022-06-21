@@ -1,4 +1,4 @@
-import { useMemo } from 'react';
+import { memo, useMemo } from 'react';
 
 import GoogleMapReact from 'google-map-react';
 import { IoStorefrontSharp } from 'react-icons/io5';
@@ -56,4 +56,4 @@ const Map: React.FC = () => {
     );
 };
 
-export default Map;
+export default memo(Map);

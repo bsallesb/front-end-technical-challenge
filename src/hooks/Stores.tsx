@@ -68,7 +68,11 @@ export const StoresProvider: React.FC = ({ children }) => {
                     id: i + 1,
                     formattedRevenue: formatCurrency(store.revenue),
                 }))
-                .filter(store => store.name.includes(search)),
+                .filter(store =>
+                    store.name
+                        .toLocaleLowerCase()
+                        .includes(search.toLocaleLowerCase())
+                ),
         [search, stores]
     );
 
